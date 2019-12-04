@@ -57,7 +57,7 @@ def start(param_list):  # 这里使用一个数组封装
 
 if __name__ == '__main__':
     start_time = time.time()
-    pool = Pool(processes=multiprocessing.cpu_count() - 1)  # 开启多进程,（有时候，进程不会同时运行）
+    pool = Pool(processes=multiprocessing.cpu_count() - 1)  # 开启多进程,（进程并不会同时运行）
     params = [  # pageid, lid, max_page, path
         ('153', '2513', 3, 'data/娱乐.csv'),  # 娱乐 https://news.sina.com.cn/roll/#pageid=153&lid=2513&k=&num=50&page=1
         ('153', '2514', 3, 'data/军事.csv'),  # 军事 https://news.sina.com.cn/roll/#pageid=153&lid=2514&k=&num=50&page=1
