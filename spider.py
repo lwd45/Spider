@@ -58,17 +58,17 @@ def start(param_list):  # 这里使用一个数组封装
 if __name__ == '__main__':
     start_time = time.time()
     pool = Pool(processes=multiprocessing.cpu_count() - 1)  # 开启多进程,（有时候，进程不会同时运行）
-    params = [  # pageid,lid,max_page,path
-        ('153', '2513', 1, 'data/娱乐.csv'),  # 娱乐 https://news.sina.com.cn/roll/#pageid=153&lid=2513&k=&num=50&page=1
-        ('153', '2514', 1, 'data/军事.csv'),  # 军事 https://news.sina.com.cn/roll/#pageid=153&lid=2514&k=&num=50&page=1
-        ('153', '2515', 1, 'data/科技.csv'),  # 科技 https://news.sina.com.cn/roll/#pageid=153&lid=2515&k=&num=50&page=1
-        ('153', '2516', 1, 'data/财经.csv'),  # 财经 https://news.sina.com.cn/roll/#pageid=153&lid=2516&k=&num=50&page=1
-        ('153', '2517', 1, 'data/股市.csv'),  # 股市 https://news.sina.com.cn/roll/#pageid=153&lid=2517&k=&num=50&page=1
-        ('13', '585', 1, 'data/赛车.csv'),  # 赛车  http://sports.sina.com.cn/roll/#pageid=13&lid=585&k=&num=50&page=1
-        ('13', '609', 1, 'data/篮球.csv'),  # 篮球  http://sports.sina.com.cn/roll/#pageid=13&lid=609&k=&num=50&page=1
-        ('13', '572', 1, 'data/足球.csv'),  # 足球  http://sports.sina.com.cn/roll/#pageid=13&lid=572&k=&num=50&page=1
-        ('13', '583', 1, 'data/跑步.csv'),  # 跑步  http://sports.sina.com.cn/roll/#pageid=13&lid=583&k=&num=50&page=1
-        ('13', '581', 1, 'data/彩票.csv'),  # 彩票  http://sports.sina.com.cn/roll/#pageid=13&lid=581&k=&num=50&page=1
+    params = [  # pageid, lid, max_page, path
+        ('153', '2513', 3, 'data/娱乐.csv'),  # 娱乐 https://news.sina.com.cn/roll/#pageid=153&lid=2513&k=&num=50&page=1
+        ('153', '2514', 3, 'data/军事.csv'),  # 军事 https://news.sina.com.cn/roll/#pageid=153&lid=2514&k=&num=50&page=1
+        ('153', '2515', 3, 'data/科技.csv'),  # 科技 https://news.sina.com.cn/roll/#pageid=153&lid=2515&k=&num=50&page=1
+        ('153', '2516', 3, 'data/财经.csv'),  # 财经 https://news.sina.com.cn/roll/#pageid=153&lid=2516&k=&num=50&page=1
+        ('153', '2517', 3, 'data/股市.csv'),  # 股市 https://news.sina.com.cn/roll/#pageid=153&lid=2517&k=&num=50&page=1
+        ('13', '585', 3, 'data/赛车.csv'),  # 赛车  http://sports.sina.com.cn/roll/#pageid=13&lid=585&k=&num=50&page=1
+        ('13', '609', 3, 'data/篮球.csv'),  # 篮球  http://sports.sina.com.cn/roll/#pageid=13&lid=609&k=&num=50&page=1
+        ('13', '572', 3, 'data/足球.csv'),  # 足球  http://sports.sina.com.cn/roll/#pageid=13&lid=572&k=&num=50&page=1
+        ('13', '583', 3, 'data/跑步.csv'),  # 跑步  http://sports.sina.com.cn/roll/#pageid=13&lid=583&k=&num=50&page=1
+        ('13', '581', 3, 'data/彩票.csv'),  # 彩票  http://sports.sina.com.cn/roll/#pageid=13&lid=581&k=&num=50&page=1
     ]
     pool.map_async(start, params)  # pool.map(start, params)
     pool.close()
