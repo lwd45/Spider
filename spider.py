@@ -38,7 +38,7 @@ def get_article_content(article_url):  # 调用上面的函数解析文章内容
     return content
 
 
-def get_title_url(web_url, save_path):  # 获得title和内容url,并调用其他方法解析出内容写入文件
+def get_title_url(web_url, save_path):  # 获得title和内容url,并调用其他方法解析出内容写入文件(只要了标题和正文)
     json_result = json.loads(requests.get(url=web_url).text)
     data = json_result['result']['data']
     for item in data:
