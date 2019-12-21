@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup
 # 跑步  http://sports.sina.com.cn/roll/#pageid=13&lid=583&k=&num=50&page=1
 # 棋牌  http://sports.sina.com.cn/roll/#pageid=13&lid=576&k=&num=50&page=1
 # 彩票  http://sports.sina.com.cn/roll/#pageid=13&lid=581&k=&num=50&page=1
+
 # 想要爬取的页面的参数列表, 在这里更改想要的参数
 url_param_list = [  # pageid, lid, start_page（包含）, end_page(不包含), save_path
     ('153', '2513', 1, 2, 'data/娱乐.csv'),
@@ -38,8 +39,8 @@ url_param_list = [  # pageid, lid, start_page（包含）, end_page(不包含), 
 
 # 保存文件
 def writer_tofile(all_news, save_path):
-    if not os.path.exists(save_path.split('/')[0]):  # 创建保存路径文件
-        os.makedirs(save_path.split('/')[0])
+    if not os.path.exists("/".join(save_path.split('/')[0:-1])):  # 创建保存路径文件
+        os.makedirs("/".join(save_path.split('/')[0:-1]))
     with open(save_path, 'a+', newline='', encoding='utf-8', errors='ignore') as f:
         writer = csv.writer(f)
         writer.writerow(all_news)
